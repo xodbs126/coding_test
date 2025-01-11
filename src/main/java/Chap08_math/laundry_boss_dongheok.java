@@ -1,4 +1,4 @@
-package Chap08_Math;
+package Chap08_math;
 
 import java.io.*;
 

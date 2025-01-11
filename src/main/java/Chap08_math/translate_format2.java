@@ -1,4 +1,4 @@
-package Chap08_Math;
+package Chap08_math;
 /***
  * 진법 변환 2
  * 시간 제한	메모리 제한	제출	정답	맞힌 사람	정답 비율
