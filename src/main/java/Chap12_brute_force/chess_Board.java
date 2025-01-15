@@ -34,8 +34,6 @@ public class chess_Board {
             board[i] = br.readLine().toCharArray();
         }
 
-
-
         for (int i = 0; i <= N-8; i++) {
             for (int j = 0; j <= M-8; j++) {
                 if (min > func(board, i, j)) {
@@ -46,7 +44,7 @@ public class chess_Board {
         System.out.println(min);
     }
 
-    private static int calculatePaint(char[][] board, int startRow, int startCol) {
+    private static int func(char[][] board, int startRow, int startCol) {
         int countW = 0;
         int countB = 0;
 
@@ -56,11 +54,12 @@ public class chess_Board {
                 char expectedW = (i + j) % 2 == 0 ? 'W' : 'B';
                 char expectedB = (i + j) % 2 == 0 ? 'B' : 'W';
 
-                if (current != expectedW) countW++;
-                if (current != expectedB) countB++;
+                if (current != expectedW)
+                    countW++;
+                if (current != expectedB)
+                    countB++;
             }
         }
-
         return Math.min(countW, countB);
     }
 }
