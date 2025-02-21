@@ -60,6 +60,7 @@ public class read_column {
                 }
             }
         }
+        bw.flush();
 
     }
 }

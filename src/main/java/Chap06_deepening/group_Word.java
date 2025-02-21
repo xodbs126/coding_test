@@ -22,7 +22,7 @@ public class group_Word {
         int group=0;
         for (int i = 0; i < count; i++) {
             String word = br.readLine();
-            if(valid(word)){
+            if(valid(word)) {
                 group++;
             }
         }

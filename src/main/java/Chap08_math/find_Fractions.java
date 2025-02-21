@@ -18,7 +18,6 @@ public class find_Fractions {
             sum += line;
             line++;
         }
-
         int position = N - sum;
 
         int numerator, denominator;

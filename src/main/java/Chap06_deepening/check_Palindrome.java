@@ -24,7 +24,7 @@ public class check_Palindrome {
 
 
         String s = br.readLine();
-        String reverse = new StringBuilder(s).reverse().toString();
+        String reverse = String.valueOf(new StringBuilder(s).reverse());
 
         if(s.equals(reverse))
             bw.write("1");
