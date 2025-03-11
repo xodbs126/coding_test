@@ -18,7 +18,7 @@ public class Sum {
         Scanner sc = new Scanner(System.in);
         int total =0;
 
-        for(int i =sc.nextInt();i>0;i--) total += i;
+        for(int i =sc.nextInt(); i>0;i--) total += i;
 
         System.out.println(total);
     }
