@@ -6,6 +6,7 @@ public class Coin_0 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
         String[] input = br.readLine().split(" ");
         int count = Integer.parseInt(input[0]);
         int money = Integer.parseInt(input[1]);

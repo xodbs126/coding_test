@@ -51,7 +51,7 @@ public class BFS_DFS {
 
 
                 List<Integer> neighbors = graph.get(node);
-                Collections.sort(neighbors,Collections.reverseOrder());
+                Collections.reverse(neighbors);
                 for (int neighbor : neighbors) {
                     if (!visited[neighbor]) {
                         stack.push(neighbor);
