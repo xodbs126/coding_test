@@ -25,7 +25,7 @@ public class point_Sort {
         });
 
         for (point point : points) {
-            System.out.println(point.getX()+" "+point.getY());
+            System.out.println(point.getX()+" "+point.getY( ));
         }
 
     }

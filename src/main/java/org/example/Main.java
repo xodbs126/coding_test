@@ -1,42 +1,41 @@
 package org.example;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Main {
-    static int count = 0;
-    static HashSet<Integer> uniqueNumbers = new HashSet<>();
-
     public static void main(String[] args) {
 
-        int[] array = {1,5,2,6,3,7,4};
-        int[][] commands = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}};
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int count = 0;
+        Set<String> nofamous = new HashSet<String>();
+        String[] listen = new String[n];
+        String[] watch = new String[m];
 
-        System.out.println(solution(array,commands));
+        for (int i = 0; i < n; i++) {
+            listen[i] = sc.next();
+        }
 
+        for (int i = 0; i < m; i++) {
+            watch[i] = sc.next();
+        }
 
-    }
-
-    private static List<Integer> solution(int[] array, int[][] commands) {
-
-        List<Integer> list = new ArrayList<>();
-
-        Arrays.sort(array);
-        for (int i = 0; i < commands.length; i++) {
-            int[] temp = new int[commands[i][1] - commands[i][0] + 1];
-            for (int j = commands[i][0] - 1; j < commands[i][1]; j++) {
-                temp[j - (commands[i][0] - 1)] = array[j];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (listen[i].equals(watch[j])) {
+                    count++;
+                    nofamous.add(listen[i]);
+                    break;
+                }
             }
-
-            list.add(temp[commands[i][2]-1]);
-        }
-        StringBuilder sb = new StringBuilder();
-        for (Integer i : list) {
-            sb.append(i);
         }
 
-
-        return list;
+        count = n - nofamous.size();
+        System.out.println(count);
+        for (String s : nofamous) {
+            System.out.println(s);
+        }
     }
-
-
 }
