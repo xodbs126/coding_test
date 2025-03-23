@@ -19,7 +19,7 @@ public class fourth_Point {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        // 입력받기
+
         int[][] points = new int[3][2];
         for (int i = 0; i < 3; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());

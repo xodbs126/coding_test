@@ -4,32 +4,22 @@ import java.io.*;
 import java.util.*;
 
 public class people_In_Office {
-    public static void main(String[] args) throws IOException {
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
-        int count = Integer.parseInt(br.readLine());
-
-        Map<String, String> log = new HashMap<>();
-        for (int i = 0; i < count; i++) {
-            String[] input = br.readLine().split(" ");
-            if (input[1].equals("leave")) {
-                log.remove(input[0]);
-            } else {
-                log.put(input[0], input[1]);
-            }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Set<String> set = new TreeSet<>(Comparator.reverseOrder());
+        for (int i = 0; i < n; i++) {
+            String name = sc.next();
+            String cmd = sc.next();
+            if (cmd.equals("enter")) {
+                set.add(name);
+            } else set.remove(name);
+        }
+        for (String s : set) {
+            System.out.println(s);
         }
 
-        List<String> peopleInOffice = new ArrayList<>(log.keySet());
-        Collections.sort(peopleInOffice, Collections.reverseOrder());
 
-        for (String name : peopleInOffice) {
-            bw.write(name + "\n");
-        }
-
-        bw.flush();
-        bw.close();
-        br.close();
+        sc.close();
     }
 }

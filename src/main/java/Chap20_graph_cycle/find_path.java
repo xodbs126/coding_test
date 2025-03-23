@@ -11,12 +11,8 @@ public class find_path {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-
         N = sc.nextInt();
         M = sc.nextInt();
-
-
         A = new int[N][M];
         visited = new boolean[N][M];
 
@@ -27,7 +23,6 @@ public class find_path {
                 A[i][j] = input.charAt(j) - '0';
             }
         }
-
 
         int result = bfs(0, 0);
 
@@ -45,26 +40,28 @@ public class find_path {
             int nowX = now[0];
             int nowY = now[1];
 
-
             if (nowX == N - 1 && nowY == M - 1) {
                 return A[nowX][nowY];
             }
 
+            for (int q = 0; q < 4; q++) {
+                int x = nowX + dx[q];
+                int y = nowY + dy[q];
 
-            for (int k = 0; k < 4; k++) {
-                int x = nowX + dx[k];
-                int y = nowY + dy[k];
-
-
-                if (x >= 0 && y >= 0 && x < N && y < M) {
+                if (x >= 0 && y >= 0 && x <= N && y <= N) {
                     if (A[x][y] == 1 && !visited[x][y]) {
                         visited[x][y] = true;
                         A[x][y] = A[nowX][nowY] + 1;
                         queue.offer(new int[]{x, y});
+
                     }
                 }
             }
+
+
+
         }
         return -1;
     }
+
 }

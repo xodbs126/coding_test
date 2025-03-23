@@ -11,7 +11,7 @@ public class fibonacci_num_1 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int num = Integer.parseInt(br.readLine());
 
-        fib(num);
+        System.out.println(fib(num));
         fibonacci(num);
 
         bw.write(count_fib +" "+count_fibonacci);

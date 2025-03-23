@@ -29,4 +29,7 @@ public class least_common_multiple {
         bw.close();
     }
 }
-
+/***
+ *         while (b != 0) {int r = a % b; a = b; b = r;} return a;
+ *     }
+ */

@@ -24,7 +24,6 @@ public class RGB {
             dp[i][2] = Math.min(dp[i-1][0], dp[i-1][1]) + price[i][2];
         }
 
-
         int result = Math.min(Math.min(dp[n-1][0], dp[n-1][1]), dp[n-1][2]);
         System.out.println(result);
     }

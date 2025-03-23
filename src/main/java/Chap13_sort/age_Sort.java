@@ -19,6 +19,9 @@ public class age_Sort {
         }
 
         Arrays.sort(people,(a,b)->{
+            if (a.getAge() == b.getAge()) {
+                return a.getName().compareTo(b.getName());
+            }
             return Integer.compare(a.getAge(), b.getAge());
         });
 
