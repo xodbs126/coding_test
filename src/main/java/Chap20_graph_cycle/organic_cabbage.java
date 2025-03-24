@@ -1,38 +1,46 @@
 package Chap20_graph_cycle;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 public class organic_cabbage {
-    static int[] dx = {0, 1, 0, -1}; // 우, 하, 좌, 상
+    static int[] dx = {0, 1, 0, -1};
     static int[] dy = {1, 0, -1, 0};
-    static int M, N, K;
+    static int N,M, K;
     static boolean[][] visited;
-    static int[][] bugs;
+    static boolean[][] cabbages;
+    static int count;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int T = sc.nextInt();
+        int t = Integer.parseInt(br.readLine());
 
-        for (int t = 0; t < T; t++) {
-            M = sc.nextInt();
-            N = sc.nextInt();
-            K = sc.nextInt();
+        for (int i = 0; i < t; i++) {
+            count = 0;
+            st = new StringTokenizer(br.readLine());
 
-            bugs = new int[N][M];
+            M = Integer.parseInt(st.nextToken());
+            N = Integer.parseInt(st.nextToken());
+            K = Integer.parseInt(st.nextToken());
+
+            cabbages = new boolean[N][M];
             visited = new boolean[N][M];
 
-            for (int i = 0; i < K; i++) {
-                int x = sc.nextInt();
-                int y = sc.nextInt();
-                bugs[y][x] = 1;
+            for (int j = 0; j < K; j++) {
+                st = new StringTokenizer(br.readLine());
+                int x = Integer.parseInt(st.nextToken());
+                int y = Integer.parseInt(st.nextToken());
+                cabbages[y][x] = true;
             }
 
-            int count = 0;
-
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < M; j++) {
-                    if (bugs[i][j] == 1 && !visited[i][j]) {
-                        bfs(i, j);
+            for (int k = 0; k < N; k++) {
+                for (int l = 0; l < M; l++) {
+                    if (!visited[k][l] && cabbages[k][l]) {
+                        visited[k][l] = true;
+                        bfs(k, l);
                         count++;
                     }
                 }
@@ -41,23 +49,22 @@ public class organic_cabbage {
         }
     }
 
-    private static void bfs(int i, int j) {
+    private static void bfs(int posX, int posY) {
         Queue<int[]> queue = new LinkedList<>();
-        queue.offer(new int[]{i, j});
-        visited[i][j] = true;
+        queue.offer(new int[]{posX, posY});
 
         while (!queue.isEmpty()) {
-            int[] now = queue.poll();
-            int nowX = now[0];
-            int nowY = now[1];
+            int[] node = queue.poll();
+            int nowX = node[0];
+            int nowY = node[1];
 
-            for (int d = 0; d < 4; d++) {
-                int x = nowX + dx[d];
-                int y = nowY + dy[d];
+            for (int i = 0; i < 4; i++) {
+                int x = dx[i]+nowX;
+                int y = dy[i]+nowY;
 
                 if (x >= 0 && y >= 0 && x < N && y < M) {
-                    if (bugs[x][y] == 1 && !visited[x][y]) {
-                        visited[x][y] = true;
+                    if (!visited[x][y] && cabbages[x][y]) {
+                        visited[x][y]= true;
                         queue.offer(new int[]{x, y});
                     }
                 }
