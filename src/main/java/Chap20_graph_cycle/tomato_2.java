@@ -11,7 +11,8 @@ public class tomato_2 {
     static int[] dz = {0, 0, 0, 0, 1, -1};
     static int[][][] tomato;
     static boolean[][][] visited;
-    static int N, M,Z;
+    static int N, M, Z;
+
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -48,10 +49,10 @@ public class tomato_2 {
             }
         }
         System.out.println(days);
-        }
+    }
 
     private static int bfs(Queue<int[]> queue) {
-        int day=-1;
+        int day = -1;
 
         while (!queue.isEmpty()) {
             int size = queue.size();
