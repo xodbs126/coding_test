@@ -1,36 +1,39 @@
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-        char[][] arr = new char[5][15];
+        Solution.solution(sc);
+    }
 
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 15; j++) {
-                arr[i][j] = '*';
-            }
-        }
-
-
-        for (int i = 0; i < 5; i++) {
-            String line = br.readLine();
-            for (int j = 0; j < line.length(); j++) {
-                arr[i][j] = line.charAt(j);
-            }
-        }
-
-        for (int i = 0; i < 15; i++) {
-            for (int j = 0; j < 5; j++) {
-                if (arr[j][i] != '*') {
-                    System.out.print(arr[j][i]);
+    private static class Solution {
+        public static void solution(Scanner sc) {
+            Character[][] arr = new Character[5][15];
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 15; j++) {
+                    arr[i][j] = '*';
                 }
+            }
 
+
+            for (int i = 0; i < 5; i++) {
+                String inputs = sc.nextLine();
+                for (int j = 0; j < inputs.length(); j++) {
+                    arr[i][j] = inputs.charAt(j);
+                }
+            }
+
+
+            for (int i = 0; i < 15; i++) {
+                for (int j = 0; j < 5; j++) {
+                    if (arr[j][i] != '*') {
+                        System.out.print(arr[j][i]);
+                    }
+                }
             }
         }
-
     }
 }
